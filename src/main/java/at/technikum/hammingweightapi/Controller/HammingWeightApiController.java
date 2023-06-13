@@ -6,6 +6,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HammingWeightApiController {
+    private String previousString;
 
+    private int calculateHammingWeight(String string)
+    {
+        int count = 0;
+        for (char c : string.toCharArray()){
+            if (c!='0'){
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+
+    @GetMapping("/api/hamming")
+    public int getHammingWeight(@RequestParam("string")String string)
+    {
+        int count = 0;
+        for (char c : string.toCharArray()) {
+            if (c != '0') {
+                count++;
+            }
+        }
+        return count;
+
+    }
 
 }
