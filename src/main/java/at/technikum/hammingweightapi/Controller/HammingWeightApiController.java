@@ -19,6 +19,15 @@ public class HammingWeightApiController {
         return count;
     }
 
+    @GetMapping("/api/hamming/previous")
+    public int getPreviousHammingWeight() {
+        if (previousString == null) {
+            return 0;
+        } else {
+            return calculateHammingWeight(previousString);
+        }
+    }
+
 
 
     @GetMapping("/api/hamming")
